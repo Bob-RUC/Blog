@@ -7,3 +7,12 @@ Microsoft Azure for public access and powerful cloud computation demand
 Haohan Yang(Learder) 
 
 Renxi Liu 
+
+## news
+* 28/4/2019 
+
+We start a new app in django project, set Sqlite3 database with migration and create basic django model for blog post
+Then we manage administration website, create views and link corresponding URLs. 
+
+Now after running the server and browse '/Blog'
+you will see a primitive form of a post.
