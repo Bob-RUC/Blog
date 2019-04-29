@@ -16,3 +16,6 @@ Then we manage administration website, create views and link corresponding URLs.
 
 Now after running the server and browse '/Blog'
 you will see a primitive form of a post.
+
+* 29/4/2019 
+We add user account system where registration and logging in are available
