@@ -83,9 +83,7 @@ def write(request):
 
         new_post = BlogPost(title=title, body=body,
                             timestamp=time)
-        print("new post")
         new_post.save()
-        print("save")
 
         return HttpResponseRedirect('/blog/')
     else:
