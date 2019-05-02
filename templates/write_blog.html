@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Bootstrap 实例 - 文本框</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        input{
+            margin: 20px;
+        }
+        textarea{
+            margin: 20px;
+            margin-right: 20px;
+        }
+        button{
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1 style="font-family: "Lucida Blackletter", eufm10, blackletter">You are writing the post!🐂🍵</h1>
+<form role="form" method="post">
+  <div class="form-group">
+    <label for="name">Title</label>
+    <input type="text" class="form-control" name="blog_title" placeholder="请输入名称" style="width: 300px">
+      <br>
+      <label for="name">Write your post</label>
+		<textarea name="blog_body" class="form-control" rows="10"></textarea>
+  </div>
+     <button type="submit" class="btn btn-default">submit the post</button>
+     <button class="btn btn-default"><a href="/blog">Back to Homepage</a> </button>
+
+</form>
+
+
+
+</body>
+</html>

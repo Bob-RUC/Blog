@@ -26,3 +26,7 @@ class UserLoginForm(forms.Form):
     username=forms.CharField(label='User Name',max_length=100)
     password=forms.CharField(label='Password',widget=forms.PasswordInput())
 
+
+class PostBlogForm(forms.Form):
+    title = forms.CharField(max_length=150)
+    contents = forms.Textarea()

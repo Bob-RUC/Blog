@@ -1,9 +1,9 @@
 import sys
 from django.shortcuts import render, render_to_response,\
-    HttpResponseRedirect
+    HttpResponseRedirect, HttpResponse
 from datetime import datetime
 from django_blog.models import  BlogPost, Account, \
-    UserForm, UserLoginForm
+    UserForm, UserLoginForm, PostBlogForm
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.core.exceptions import ObjectDoesNotExist
@@ -11,10 +11,8 @@ from django.core.exceptions import ObjectDoesNotExist
 
 
 def archive(request):
-    post = BlogPost(title='mocktitle', body='mockbody',
-                    timestamp=datetime.now())
 
-    return render_to_response('homepage.html', {'posts':[post]})
+    return render_to_response('homepage.html', {'posts':BlogPost.objects.all()})
 
 @csrf_exempt
 def register(request):
@@ -61,3 +59,34 @@ def login(request):
     return render_to_response('login.html',{'uf':uf},
                               RequestContext(request))
 
+
+def write_post(request):
+    if request.method == 'POST':
+        write_post = PostBlogForm(request.POST)
+        if write_post.is_valid():
+            title = write_post.cleaned_data('title')
+            contents = write_post.cleaned_data('contents')
+
+
+def home(request, my_args):
+    return HttpResponse("You're looking at my_args %s" % my_args)
+
+@csrf_exempt
+def write(request):
+    if request.method == 'GET':
+        return render_to_response('write_blog.html')
+
+    elif request.method == 'POST':
+        title = request.POST.get('blog_title')
+        body = request.POST.get('blog_body')
+        time = datetime.now()
+
+        new_post = BlogPost(title=title, body=body,
+                            timestamp=time)
+        print("new post")
+        new_post.save()
+        print("save")
+
+        return HttpResponseRedirect('/blog/')
+    else:
+        return HttpResponse("fuck you!")

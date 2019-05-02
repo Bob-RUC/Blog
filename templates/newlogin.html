@@ -1,0 +1,19 @@
+<div class="container"r>
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <form method="post" action=".">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">password</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                </div>
+                <button type="submit" class="btn-primary">log in</button>
+            </form>
+    </div>
+    </div>
+</div>

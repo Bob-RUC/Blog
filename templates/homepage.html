@@ -1,39 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
-  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-</head>
-<body>
+{% extends "base.html" %}
 
-<div class="container">
-  <div class="jumbotron">
-    <h1>My First Bootstrap Page</h1>
-    <p>Resize this responsive page to see the effect!</p>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-  </div>
-</div>
+{% block content %}
+<div class="posts">
+    {% for post in posts %}
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title">{{ post.title }}</h2>
 
-</body>
-</html>
+                    <p class="post-meta">
+                        Time:  <a class="post-author" href="#">{{ post.timestamp }}</a>
+                    </p>
+            </header>
 
+                <div class="post-description">
+                    <p>
+                        {{ post.body }}
+                    </p>
+                </div>
+        </section>
+    {% endfor %}
+<form class="pure-form">
+    <fieldset>
+        <legend>一个简单的单行表单</legend>
+
+        <input type="email" placeholder="Email">
+        <br>
+        <input type="text" width="50px">
+
+        <label for="remember">
+            <input id="remember" type="checkbox"> 记住我
+        </label>
+
+        <button type="submit" class="pure-button pure-button-primary">登录</button>
+    </fieldset>
+</form>
+</div><!-- /.blog-post -->
+{% endblock %}
